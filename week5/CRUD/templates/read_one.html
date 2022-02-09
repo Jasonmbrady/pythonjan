@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=" {{ url_for('static', filename='style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <h1>User {{user.id}}</h1>
+        <a href="/users">Home</a>
+    </div>
+    <h3> Name: {{user.f_name }} {{user.l_name}}</h3>
+    <p> Email: {{user.email}} </p>
+    <p> Created at: {{user.created_at}}</p>
+    <p> Updated at: {{user.updated_at}}</p>
+
+    <a href="/edit_user/{{user.id}}">Edit</a> | <a href="/delete/{{user.id}}">Delete</a>
+</body>
+</html>
