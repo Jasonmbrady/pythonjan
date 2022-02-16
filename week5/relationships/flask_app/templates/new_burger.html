@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Create a New Burger</h1>
+    <form action="/burgers/create" method="post">
+        <div>
+            <label>Name</label>
+            <input type="text" name="name">
+        </div>
+        <div>
+            <label>Bun</label>
+            <input type="text" name="bun">
+        </div>
+        <div>
+            <label>Meat</label>
+            <input type="text" name="meat">
+        </div>
+        <div>
+            <label>Cheese</label>
+            <input type="text" name="cheese">
+        </div>
+        <div>
+            <label>Calories</label>
+            <input type="number" name="calories">
+        </div>
+        <div>
+            <label>Restaurant</label>
+            <select name="restaurant">
+                {% for rest in all_rest %}
+                    <option value="{{ rest.id }}">{{ rest.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button>Create!</button>
+    </form>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js'></script>
+</body>
+</html>
