@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Log in or register!</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="header">Welcome to Tweeter!</h1>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="flash text-danger">{{message}}</p>                  
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div class="form-row">
+            <form action="/users/login" method="post" class="log-form">
+                <h3>Log in here</h3>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" name="email">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password">
+                </div>
+                <button>Log In</button>
+            </form>
+            <form action="/users/register" method="post" class="reg-form">
+                <h3>Register here</h3>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="name">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" name="email">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password">
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" name="confirm-password">
+                </div>
+                <button>Register</button>
+            </form>
+        </div>
+    </div>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js'></script>
+</body>
+</html>

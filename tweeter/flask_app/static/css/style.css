@@ -1,0 +1,31 @@
+.form-row {
+    display: flex;
+    justify-content: center;
+}
+
+.log-form {
+    margin: 25px;
+    text-align: right;
+}
+
+.reg-form {
+    border-left: 2px solid black;
+    padding: 25px;
+    text-align: right;
+}
+.header {
+    text-align: center;
+    height: 50px;
+}
+h3 {
+    margin-top: 0px;
+}
+.flash {
+    text-align: center;
+}
+.dash-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
