@@ -1,5 +1,6 @@
 from flask_app import app
 from flask import render_template, redirect, request, flash, session
+from flask_app.models.tweet import Tweet
 from flask_app.models.user import User
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
@@ -41,7 +42,8 @@ def dashboard():
         "id": session["user_id"]
     }
     logged_user = User.read_one(data)
-    return render_template("dashboard.html", user = logged_user)
+    all_tweets = Tweet.read_all()
+    return render_template("dashboard.html", user = logged_user, tweets = all_tweets)
 
 @app.route("/logout")
 def logout():

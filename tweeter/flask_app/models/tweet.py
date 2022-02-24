@@ -13,3 +13,12 @@ class Tweet:
         query = "INSERT INTO tweets (text, users_id) VALUES (%(text)s, %(users_id)s);"
         results = connectToMySQL("tweeter").query_db(query, data)
         return results
+
+    @classmethod
+    def read_all(cls):
+        query = "SELECT * FROM tweets;"
+        results = connectToMySQL("tweeter").query_db(query)
+        all_tweets = []
+        for row in results:
+            all_tweets.append( cls(row) )
+        return all_tweets
