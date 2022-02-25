@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Food Trucks</title>
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <h3>Welcome, {{user.username}}</h3>
+            <h3><a href="/logout">Log Out</a></h3>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Truck Name</th>
+                    <th>Food Served</th>
+                    <th>Added By</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for truck in all_trucks %}
+                    <tr>
+                        <td>{{ truck.name }}</td>
+                        <td>{{ truck.type }}</td>
+                        <td>{{ truck.user.username }}</td>
+                        <td><a href="/trucks/{{truck.id}}">View</a>
+                            {% if truck.user.id==user.id %}
+                             | <a href="/trucks/edit/{{truck.id}}">Edit</a> | <a href="/trucks/delete/{{truck.id}}">Delete</a>
+                            {% else %}
+                             | <a href="/trucks/like/{{truck.id}}">Like</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h3><a href="/trucks/new">Add A New Truck</a></h3>
+    </div>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js'></script>
+</body>
+</html>
