@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Login or Register here</h2>
+    </div>
+    <div class="log-reg-forms">
+        <form action="/register" class="reg-form" method="post">
+            <div>
+                <label>Username</label>
+                <input type="text" name="username">
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="text" name="password">
+            </div>
+            <div>
+                <label>Latitude</label>
+                <input type="text" name="lat">
+            </div>
+            <div>
+                <label>Longitude</label>
+                <input type="text" name="lon">
+            </div>
+            <button>Register</button>
+        </form>
+        <form action="/login" class="log-form" method="post">
+            <div>
+                <label>Username</label>
+                <input type="text" name="username">
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="text" name="password">
+            </div>
+            <button>Log In</button>
+        </form>
+    </div>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js'></script>
+</body>
+</html>

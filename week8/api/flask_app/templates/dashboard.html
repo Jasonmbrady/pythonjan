@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <h2>Welcome, {{user.username}}!</h2>
+            <a href="/logout"><h2>Logout</h2></a>
+        </div>
+        <div class="row">
+            <h3>Current Temp: <span id="curr-temp">{{ weather["main"]["temp"]}}</span></h3>
+            <h3>High Temp: <span id="high-temp" class="text-danger">{{ weather["main"]["temp_max"]}}</span></h3>
+            <h3>Low Temp: <span id="low-temp" class="text-primary">{{ weather["main"]["temp_min"]}}</span></h3>
+        </div>
+    </div>
+
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js'></script>
+<!-- <script src="{{ url_for('static', filename='js/script.js') }}"></script> -->
+</body>
+</html>

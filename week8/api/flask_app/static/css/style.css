@@ -1,0 +1,27 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.log-reg-forms {
+    display: flex;
+    justify-content: center;
+}
+
+.log-form {
+    padding: 20px;
+    border-left: 2px solid black;
+}
+
+.reg-form {
+    margin: 20px;
+}
+
+#lat, #lon {
+    display: none;
+}
