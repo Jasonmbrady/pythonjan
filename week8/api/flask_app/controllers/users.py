@@ -39,3 +39,15 @@ def dashboard():
 def logout():
     session.pop("user_id")
     return redirect("/")
+
+@app.route("/update_user", methods=['POST'])
+def update_user():
+    data = {
+        "id": session["user_id"],
+        "lat": request.form['lat'],
+        "lon": request.form['lon']
+    }
+    User.update(data)
+    r = requests.get(f"http://api.openweathermap.org/data/2.5/weather?lat={data['lat']}&lon={data['lon']}&units=imperial&appid={os.environ.get('WEATHER_API_KEY')}")
+
+    return jsonify(r.json())

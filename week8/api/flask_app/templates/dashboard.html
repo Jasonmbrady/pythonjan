@@ -19,10 +19,23 @@
             <h3>High Temp: <span id="high-temp" class="text-danger">{{ weather["main"]["temp_max"]}}</span></h3>
             <h3>Low Temp: <span id="low-temp" class="text-primary">{{ weather["main"]["temp_min"]}}</span></h3>
         </div>
+        <div class="row">
+            <form action="/update_lat_lon" method="post" id="lat_lon_form">
+                <div>
+                    <label>Latitude</label>
+                    <input type="number" name="lat">
+                </div>
+                <div>
+                    <label>Longitude</label>
+                    <input type="number" name="lon">
+                </div>
+                <button>Update!</button>
+            </form>
+        </div>
     </div>
 
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js'></script>
-<!-- <script src="{{ url_for('static', filename='js/script.js') }}"></script> -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

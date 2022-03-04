@@ -21,6 +21,12 @@ class User:
         return cls(results[0])
 
     @classmethod
+    def get_dict(cls, data):
+        query = "SELECT * FROM users WHERE id=%(id)s;"
+        results = connectToMySQL(cls.db).query_db(query, data)
+        return results[0]
+
+    @classmethod
     def get_by_username(cls, data):
         query = "SELECT * FROM users WHERE username=%(username)s;"
         results = connectToMySQL(cls.db).query_db(query, data)
@@ -33,3 +39,9 @@ class User:
         query = "INSERT INTO users (username, password, lat, lon) VALUES (%(username)s, %(password)s, %(lat)s, %(lon)s);"
         results = connectToMySQL(cls.db).query_db(query, data)
         return results
+
+    @classmethod
+    def update(cls, data):
+        query = "UPDATE users SET lat=%(lat)s, lon=%(lon)s WHERE id = %(id)s;"
+        connectToMySQL(cls.db).query_db(query, data)
+        return
